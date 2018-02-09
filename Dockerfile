@@ -1,4 +1,4 @@
-FROM python:2-alpine
+FROM python:2-alpine3.7
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
@@ -8,10 +8,8 @@ ENV INSTALL_PATH="/app"
 WORKDIR ${INSTALL_PATH}
 
 ### Install packages
-RUN apk --no-cache update \
-  #Required
+RUN apk add --no-cache --update ca-certificates \
   && apk add --no-cache \
-    ca-certificates \
     tesseract-ocr \
     tesseract-ocr-data-eus \
     curl \
